@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gostou Tartous</title>
+        <link rel="icon" type="image/jpg" href="gostou.jpg">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<script>
+    function opensection(section) {
+        document.getElementById("categories").style.display = "none";
+        document.getElementById(section + "-section").style.display = "flex";
+        document.getElementById("exit").style.display = "block";
+    }
+    function exit() {
+        document.getElementById("food-section").style.display = "none";
+        document.getElementById("drink-section").style.display = "none";
+        document.getElementById("dessert-section").style.display = "none";
+        document.getElementById("exit").style.display = "none";
+        document.getElementById("categories").style.display = "flex";
+    }
+    function openorder(name, price, img, description, section) {
+        document.getElementById("food-section").style.display = "none";
+        document.getElementById("drink-section").style.display = "none";
+        document.getElementById("dessert-section").style.display = "none";
+        document.getElementById("logo").style.display = "none";
+        document.getElementById("exit").style.display = "none";
+        document.getElementById("exit2").style.display = "block";
+        document.getElementById("order").style.display = "flex";
+        document.getElementById("order-name").innerHTML = name;
+        document.getElementById("order-img").src = img;
+        document.getElementById("order-price").innerHTML = price;
+        document.getElementById("order-description").innerHTML = description;
+        document.getElementById("exit2").onclick = function() {
+                    document.getElementById("exit").style.display = "block";
+                    document.getElementById("logo").style.display = "flex";
+                    document.getElementById("exit2").style.display = "none";
+                    document.getElementById("order").style.display = "none";
+                    document.getElementById(section + "-section").style.display = "flex";
+                }
+    }
+</script>
+<style>
+:root {
+    --cream: #F5ECD7;
+    --text: #3B4A1A;
+}
+
+body {
+    background-color: #5C6B2E;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    margin: 5px;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.logo img{
+    width: 250px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.box {
+    background-color: var(--cream);
+    color: var(--text);
+    width: 150px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.box:hover {
+    scale: 1.1;
+}
+.box img {
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    object-fit: cover;
+    align-self: center;
+}
+.container2 {
+    align-self: center;
+    display: none;
+    justify-content: center;
+    max-width: 600px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.exit {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: none;
+}
+.exit img {
+    width: 40px;
+    height: 60px;
+}
+.order {
+    background-color: var(--cream);
+    align-self: center;
+    width: 90%;
+    max-width: 500px;
+    height: 95vh;
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    text-align: right;
+    justify-content: center;
+    margin: 3px;
+    padding: 15px;
+}
+
+.order h1 {
+    color: var(--text);
+}
+
+.order p {
+    color: #7A8A5A;
+}
+
+.order h2 {
+    color: #C9A84C;
+}
+.order img {
+    align-self: center;
+    width: 320px;
+    height: 320px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+        </style>
+    </head>
+    <body>
+
+        <!--Main page-->
+
+        <div class="logo" id="logo">
+            <img src="gousto_logo_white.png">
+        </div>
+        <div class="container" id="categories">
+            <div class="box" onclick="opensection('drink')">
+                <img src="Drinks.jfif">
+                <h2>المشروبات</h2>
+            </div>
+            <div class="box" onclick="opensection('food')">
+                <img src="beef-burgere.jpg">
+                <h2>المأكولات</h2>
+            </div>
+            <div class="box" onclick="opensection('dessert')">
+                <img src="dessert.webp">
+                <h2>الحلويات</h2>
+            </div>
+        </div>
+
+        <!--FODD Sections-->
+
+        <div class="container2" id="food-section">
+            <div class="box" onclick="openorder('برجر لحم', 'السعر: 15000', 'beef-burgere.jpg', ' الوصف: لحمو طماطم, خس مشوي, بصل, جبنة موتزريلا', 'food')">
+                <img src="beef-burgere.jpg">
+                <h2>برجر لحم</h2>
+                <p>السعر 15000</p>
+            </div>
+            <div class="box" onclick="openorder('شيش تاووق', 'السعر: 70000', 'shesh.jfif', ' الوصف: شيش تاوق مشوي, كريم توم, سلطة', 'food')">
+                <img src="shesh.jfif">
+                <h2>شيش تاووق</h2>
+                <p>السعر 70000</p>
+            </div>
+            <div class="box"  onclick="openorder('كوردن بلو', 'السعر: 70000', 'cordon.jpg', ' الوصف: كوردن بلو, صوص, بطاطا مقلية', 'food')">
+                <img src="cordon.jpg">
+                <h2>كوردن بلو</h2>
+                <p>السعر 70000</p>
+            </div>
+        </div>
+
+        <!--DRINKS Section-->
+              
+        <div class="container2" id="drink-section">
+            <div class="box" onclick="openorder('موهيتو فريز', 'السعر: 35000', 'mojito.jpg', '#', 'drink')">
+                <img src="mojito.jpg">
+                <h2>موهيتو فريز</h2>
+                <p>السعر 15000</p>
+            </div>    
+
+            <div class="box" onclick="openorder('ميلك شيك اوريو', 'السعر: 45000', 'oreo.jfif', '#', 'drink')">
+                <img src="oreo.jfif">
+                <h3>ميلك شيك اوريو</h3>
+                <p>السعر 15000</p>
+            </div>
+
+            <div class="box" onclick="openorder('عصير اناناس', 'السعر: 25000', 'Drinks.jfif', '#', 'drink')">
+                <img src="Drinks.jfif">
+                <h2>عصير اناناس</h2>
+                <p>السعر 15000</p>
+            </div>
+
+            <div class="box" onclick="openorder('هوت شوكليت', 'السعر: 30000', 'hot.webp', '#', 'drink')">
+                <img src="hot.webp">
+                <h2>هوت شوكليت</h2>
+                <p>السعر 30000</p>
+            </div>
+
+            <div class="box" onclick="openorder('هوت لوتس', 'السعر: 35000', 'hot lotus.jpg', '#', 'drink')">
+                <img src="hot lotus.jpg">
+                <h2>هوت لوتس</h2>
+                <p>السعر 35000</p>
+            </div>
+
+            <div class="box" onclick="openorder('كابتشينو', 'السعر: 15000', 'cappuccino.webp', '#', 'drink')">
+                <img src="cappuccino.webp">
+                <h2>كابتشينو</h2>
+                <p>السعر 15000</p>
+            </div>
+
+            <div class="box" onclick="openorder('ميلك شيك لوتس', 'السعر: 30000', 'milkshake.png', '#', 'drink')">
+                <img src="milkshake.png">
+                <h3>ميلك شيك لوتس</h3>
+                <p>السعر 30000</p>
+            </div>
+
+            <div class="box" onclick="openorder('ايس لاتي', 'السعر: 25000', 'ice latte.jpg', '#', 'drink')">
+                <img src="ice latte.jpg">
+                <h2>ايس لاتي</h2>
+                <p>السعر 25000</p>
+            </div>
+        </div>
+
+            <!--Dessert section-->
+
+            <div class="container2" id="dessert-section">
+            <div class="box" onclick="openorder('سلطة فواكه', 'السعر: 50000', 'salad.png', '#', 'dessert')">
+                <img src="salad.png">
+                <h2>سلطة فواكه</h2>
+                <p>السعر 50000</p>
+            </div>
+            <div class="box" onclick="openorder('كريب', 'السعر: 35000', 'crepe.jfif', '#', 'dessert')">
+                <img src="crepe.jfif">
+                <h2>كريب</h2>
+                <p>السعر 35000</p>
+            </div>
+            <div class="box" onclick="openorder('تيراميسو', 'السعر: 45000', 'tiramisu.jpg', '#', 'dessert')">
+                <img src="tiramisu.jpg">
+                <h2>تيراميسو</h2>
+                <p>السعر 45000</p>
+            </div>
+            <div class="box" onclick="openorder('بان كيك', 'السعر: 30000', 'pancake.webp', '#', 'dessert')">
+                <img src="pancake.webp">
+                <h2>بان كيك</h2>
+                <p>السعر 30000</p>
+            </div>
+        </div>
+
+        <!--exit icon-->
+
+        <div class="exit" id="exit" onclick="exit()">
+            <img src="exit.png">
+        </div>
+
+        <div class="exit" id="exit2" onclick="exit2()">
+            <img src="exit.png">
+        </div>
+
+        <!--Order-->
+        <div class="order" id="order">
+            <img id="order-img" src="">
+            <h1 id="order-name"></h1>
+            <p id="order-description"></p>
+            <h2 id="order-price"></h2>
+        </div>
+    </body>
+</html>
