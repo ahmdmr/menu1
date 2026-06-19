@@ -17,6 +17,8 @@
         document.getElementById("drink-section").style.display = "none";
         document.getElementById("dessert-section").style.display = "none";
         document.getElementById("exit").style.display = "none";
+        document.getElementById("hot-section").style.display = "none";
+        document.getElementById("cold-section").style.display = "none";
         document.getElementById("categories").style.display = "flex";
     }
     function openorder(name, price, img, description, section) {
@@ -24,6 +26,8 @@
         document.getElementById("drink-section").style.display = "none";
         document.getElementById("dessert-section").style.display = "none";
         document.getElementById("logo").style.display = "none";
+        document.getElementById("hot-section").style.display = "none";
+        document.getElementById("cold-section").style.display = "none";
         document.getElementById("exit").style.display = "none";
         document.getElementById("exit2").style.display = "block";
         document.getElementById("order").style.display = "flex";
@@ -38,6 +42,10 @@
                     document.getElementById("order").style.display = "none";
                     document.getElementById(section + "-section").style.display = "flex";
                 }
+    }
+    function drinks(pref) {
+        document.getElementById(pref + "-section").style.display = "flex";
+        document.getElementById("drink-section").style.display = "none";
     }
 </script>
 <style>
@@ -97,7 +105,72 @@ body {
     object-fit: cover;
     align-self: center;
 }
+
+.box2 {
+    background-color: var(--cream);
+    color: var(--text);
+    width: 150px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.box2:hover {
+    scale: 1.1;
+}
+.box2 img {
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    object-fit: cover;
+    align-self: center;
+}
+.box3 {
+    background-color: var(--cream);
+    color: var(--text);
+    width: 150px;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.box3:hover {
+    scale: 1.1;
+}
+.box3 img {
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    object-fit: cover;
+    align-self: center;
+}
 .container2 {
+    align-self: center;
+    display: none;
+    justify-content: center;
+    max-width: 600px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.container3 {
+    align-self: center;
+    display: none;
+    justify-content: center;
+    max-width: 600px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.container4 {
     align-self: center;
     display: none;
     justify-content: center;
@@ -195,52 +268,70 @@ body {
             </div>
         </div>
 
-        <!--DRINKS Section-->
-              
-        <div class="container2" id="drink-section">
-            <div class="box" onclick="openorder('موهيتو فريز', 'السعر: 35000', 'mojito.jpg', '#', 'drink')">
+        <div class="container3" id="drink-section">
+            <div class="box2" onclick="drinks('hot')">
+                <img src="cappuccino.webp">
+                <h2>ساخنة</h2>
+            </div>
+
+            <div class="box2"  onclick="drinks('cold')">
                 <img src="mojito.jpg">
-                <h2>موهيتو فريز</h2>
-                <p>السعر 15000</p>
-            </div>    
-
-            <div class="box" onclick="openorder('ميلك شيك اوريو', 'السعر: 45000', 'oreo.jfif', '#', 'drink')">
-                <img src="oreo.jfif">
-                <h3>ميلك شيك اوريو</h3>
-                <p>السعر 15000</p>
+                <h2>باردة</h2>
             </div>
+        </div>
 
-            <div class="box" onclick="openorder('عصير اناناس', 'السعر: 25000', 'Drinks.jfif', '#', 'drink')">
-                <img src="Drinks.jfif">
-                <h2>عصير اناناس</h2>
-                <p>السعر 15000</p>
-            </div>
+        <!--DRINKS Section-->
 
-            <div class="box" onclick="openorder('هوت شوكليت', 'السعر: 30000', 'hot.webp', '#', 'drink')">
+        <!--hot dirnks-->
+
+        <div class="container2" id="hot-section">
+            <div class="box" onclick="openorder('هوت شوكليت', 'السعر: 30000', 'hot.webp', '#', 'hot')">
                 <img src="hot.webp">
                 <h2>هوت شوكليت</h2>
                 <p>السعر 30000</p>
             </div>
 
-            <div class="box" onclick="openorder('هوت لوتس', 'السعر: 35000', 'hot lotus.jpg', '#', 'drink')">
+            <div class="box" onclick="openorder('هوت لوتس', 'السعر: 35000', 'hot lotus.jpg', '#', 'hot')">
                 <img src="hot lotus.jpg">
                 <h2>هوت لوتس</h2>
                 <p>السعر 35000</p>
             </div>
 
-            <div class="box" onclick="openorder('كابتشينو', 'السعر: 15000', 'cappuccino.webp', '#', 'drink')">
+            <div class="box" onclick="openorder('كابتشينو', 'السعر: 15000', 'cappuccino.webp', '#', 'hot')">
                 <img src="cappuccino.webp">
                 <h2>كابتشينو</h2>
                 <p>السعر 15000</p>
             </div>
+        </div>
 
-            <div class="box" onclick="openorder('ميلك شيك لوتس', 'السعر: 30000', 'milkshake.png', '#', 'drink')">
+        <!--cold drinks-->
+
+        <div class="container4" id="cold-section">
+            <div class="box3" onclick="openorder('موهيتو فريز', 'السعر: 35000', 'mojito.jpg', '#', 'cold')">
+                <img src="mojito.jpg">
+                <h2>موهيتو فريز</h2>
+                <p>السعر 35000</p>
+            </div>    
+
+            <div class="box3" onclick="openorder('ميلك شيك اوريو', 'السعر: 45000', 'oreo.jfif', '#', 'cold')">
+                <img src="oreo.jfif">
+                <h3>ميلك شيك اوريو</h3>
+                <p>السعر 45000</p>
+            </div>
+
+            <div class="box3" onclick="openorder('عصير اناناس', 'السعر: 25000', 'Drinks.jfif', '#', 'cold')">
+                <img src="Drinks.jfif">
+                <h2>عصير اناناس</h2>
+                <p>السعر 25000</p>
+            </div>
+
+            <div class="box3" onclick="openorder('ميلك شيك لوتس', 'السعر: 30000', 'milkshake.png', '#', 'cold')">
                 <img src="milkshake.png">
                 <h3>ميلك شيك لوتس</h3>
                 <p>السعر 30000</p>
             </div>
 
-            <div class="box" onclick="openorder('ايس لاتي', 'السعر: 25000', 'ice latte.jpg', '#', 'drink')">
+            <div class="box3" onclick="openorder('ايس لاتي', 'السعر: 25000', 'ice latte.jpg', '#', 'cold')">
                 <img src="ice latte.jpg">
                 <h2>ايس لاتي</h2>
                 <p>السعر 25000</p>
